@@ -1,0 +1,18 @@
+type KeyNotFoundError {
+  key: String!
+}
+
+type KeyValue {
+  key: String!
+  value: String!
+}
+
+type Mutation {
+  setByKey(key: String!, value: String!): KeyValue!
+}
+
+type Query {
+  getByKey(key: String!): QueryResponse!
+}
+
+union QueryResponse = KeyValue | KeyNotFoundError
